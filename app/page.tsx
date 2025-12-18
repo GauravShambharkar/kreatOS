@@ -1,7 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Twitter, Sparkles, Zap, ArrowRight, X } from "lucide-react";
+import {
+  Twitter,
+  Sparkles,
+  Zap,
+  ArrowRight,
+  X,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 
 export default function Home() {
   const tools = [
@@ -9,28 +17,28 @@ export default function Home() {
       name: "Tweet Mock Generator",
       description:
         "Create realistic, high-quality tweet mockups in seconds. Perfect for presentations, portfolios, and social media content.",
-      href: "/tweet-mock-generator",
+      href: "/tweet-mockup-generator",
       icon: Twitter,
       gradient: "from-blue-500 to-sky-400",
       bgGradient: "from-blue-500/10 to-sky-400/10",
       status: "Available",
     },
     {
-      name: "Instagram Post Creator",
+      name: "Instagram Post Mockup Generator",
       description:
         "Design stunning Instagram post mockups with customizable layouts and filters.",
-      href: "#",
-      icon: Sparkles,
+      href: "/insta-mockup-generator",
+      icon: Instagram,
       gradient: "from-pink-500 to-purple-500",
       bgGradient: "from-pink-500/10 to-purple-500/10",
-      status: "Coming Soon",
+      status: "Available",
     },
     {
-      name: "LinkedIn Post Builder",
+      name: "LinkedIn Post Mockup Generator",
       description:
         "Generate professional LinkedIn posts with engagement metrics and branding.",
-      href: "#",
-      icon: Zap,
+      href: "/linkedin-mockup-generator",
+      icon: Linkedin,
       gradient: "from-blue-600 to-indigo-600",
       bgGradient: "from-blue-600/10 to-indigo-600/10",
       status: "Coming Soon",
@@ -38,7 +46,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-[#0a0a0a] dark:via-[#0f0f0f] dark:to-[#0a0a1a] text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen ">
       {/* Header */}
       <header className="border-b bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-lg border-gray-200 dark:border-zinc-800 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -56,21 +64,21 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 ">
-        <div className="text-center space-y-6 max-w-4xl mx-auto bg-linear-to-tr from-[#83bdff] to-[#ffffff] p-4 rounded-2xl">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 dark:bg-white/20 border border-white dark:border-[#0000001e]">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24  ">
+        <div className="text-center space-y-6 max-w-4xl mx-auto bg-linear-to-tr from-[#000000] via-[#4ea0ff] to-[#000000] p-4 rounded-2xl">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 dark:bg-white/20 border border-white dark:border-[#aaaaaa]">
             <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-            <span className=" text-sm font-medium text-[#2a8dff] ">
+            <span className=" text-sm font-medium text-[white] ">
               Professional Tools for Content Creators
             </span>
           </div>
 
-          <h2 className="leading-20 text-[#2a8dff] tracking-tighter text-5xl md:text-6xl lg:text-7xl font-extralight">
+          <h2 className="leading-20 text-[#ffffff] mix-blend-plus-darker tracking-tighter text-5xl md:text-6xl lg:text-7xl font-extralight">
             Create Stunning <br />
             <span className="font-white">Social Media Mockups</span>
           </h2>
 
-          <p className="text-sm md:text-lg mix-blend-difference leading-tight font-extralight tracking-tight text-[#6e6e6eaa] dark:text-[#9d9d9db6] max-w-3xl mx-auto ">
+          <p className="text-sm md:text-lg mix-blend-plus-lighter text-white leading-tight font-extralight tracking-tight  dark:text-[#9d9d9db6] max-w-3xl mx-auto ">
             A comprehensive suite of tools designed for content creators,
             marketers, and designers to craft pixel-perfect social media mockups
             effortlessly.
@@ -98,21 +106,21 @@ export default function Home() {
               <Link
                 key={tool.name}
                 href={isAvailable ? tool.href : "#"}
-                className={`group relative overflow-hidden rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-[#16181c] p-8 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] ${
+                className={`group relative overflow-hidden rounded-2xl border  border-gray-200 dark:border-zinc-800 bg-white/20 backdrop-blur-2xl dark:bg-[#16181c]/70 p-8 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] ${
                   !isAvailable ? "opacity-75 cursor-not-allowed" : ""
                 }`}
                 onClick={(e) => !isAvailable && e.preventDefault()}
               >
                 {/* Background Gradient */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${tool.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                  className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
                 />
 
                 {/* Content */}
                 <div className="relative z-10 space-y-4">
                   <div className="flex items-start justify-between">
                     <div
-                      className={`w-14 h-14 rounded-xl bg-gradient-to-br ${tool.gradient} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}
+                      className={`w-14 h-14 rounded-xl  flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}
                     >
                       <Icon className="w-7 h-7 text-white" />
                     </div>
@@ -127,7 +135,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <h4 className="text-xl font-extralight tracking-tighter mb-2 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    <h4 className="text-xl font-extralight tracking-tighter mb-2  transition-all duration-300">
                       {tool.name}
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400 leading-tight font-extralight tracking-tighter">
@@ -138,7 +146,7 @@ export default function Home() {
 
                 {/* Hover Effect Border */}
                 <div
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${tool.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none`}
+                  className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none`}
                 />
               </Link>
             );

@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { initialdata, Tweetdata } from "@/lib/types";
-import { TweetCard } from "@/components/tweet-card";
-import { TweetdataForm } from "@/components/tweet-data-form";
+import { TweetCard } from "@/components/Tweet-Mockup-Generator/tweet-card";
+import { TweetdataForm } from "@/components/Tweet-Mockup-Generator/tweet-data-form";
 import { Download, RefreshCw, ArrowLeft } from "lucide-react";
 import { toPng } from "html-to-image";
 import Link from "next/link";
