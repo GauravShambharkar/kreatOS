@@ -12,6 +12,7 @@ import Image from "next/image";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
+
 interface TweetCardProps {
   data: Tweetdata;
 }
@@ -21,6 +22,7 @@ export function TweetCard({ data }: TweetCardProps) {
 
   // Theme map
   const themeClasses = {
+    
     light: "bg-white text-black",
     dim: "bg-[#15202b] text-white",
     dark: "bg-black text-[#e7e9ea]",
