@@ -1,16 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Twitter,
-  Sparkles,
-  Zap,
-  ArrowRight,
-  X,
-  Instagram,
-  Linkedin,
-  Youtube,
-} from "lucide-react";
+import { Sparkles, ArrowRight } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
+import { BsInstagram } from "react-icons/bs";
+import { FaLinkedin } from "react-icons/fa";
+import { GrYoutube } from "react-icons/gr";
 
 export default function Home() {
   const tools = [
@@ -19,7 +14,7 @@ export default function Home() {
       description:
         "Create realistic, high-quality tweet mockups in seconds. Perfect for presentations, portfolios, and social media content.",
       href: "tool/tweet-mockup-generator",
-      icon: Twitter,
+      icon: FaXTwitter,
       gradient: "from-blue-500 to-sky-400",
       bgGradient: "from-blue-500/10 to-sky-400/10",
       status: "Available",
@@ -29,7 +24,7 @@ export default function Home() {
       description:
         "Design stunning Instagram post mockups with customizable layouts and filters.",
       href: "tool/insta-mockup-generator",
-      icon: Instagram,
+      icon: BsInstagram,
       gradient: "from-pink-500 to-purple-500",
       bgGradient: "from-pink-500/10 to-purple-500/10",
       status: "Available",
@@ -39,17 +34,17 @@ export default function Home() {
       description:
         "Generate professional LinkedIn posts with engagement metrics and branding.",
       href: "tool/linkedin-mockup-generator",
-      icon: Linkedin,
+      icon: FaLinkedin,
       gradient: "from-blue-600 to-indigo-600",
       bgGradient: "from-blue-600/10 to-indigo-600/10",
-      status: "Coming Soon",
+      status: "Available",
     },
     {
       name: "Youtube Mockup Generator",
       description:
         "Generate professional Youtube posts with engagement metrics and branding.",
       href: "tool/youtube-mockup",
-      icon: Youtube,
+      icon: GrYoutube,
       gradient: "from-blue-600 to-indigo-600",
       bgGradient: "from-blue-600/10 to-indigo-600/10",
       status: "Available",
@@ -64,7 +59,7 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24  ">
         <div className="text-center space-y-6 max-w-4xl mx-auto bg-linear-to-tr from-[#000000] via-[#4ea0ff] to-[#000000] p-4 rounded-2xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 dark:bg-white/20 border border-white dark:border-[#aaaaaa]">
-            <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <Sparkles className="w-4 h-4 text-blue-200 dark:text-blue-400" />
             <span className=" text-sm font-medium text-[white] ">
               Professional Tools for Content Creators
             </span>
