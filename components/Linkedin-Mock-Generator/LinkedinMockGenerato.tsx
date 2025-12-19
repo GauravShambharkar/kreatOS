@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const LinkedinMockGenerato = () => {
+const LinkedinMockGenerator = () => {
   return (
     <>
       <div>LinkedinMockGenerato</div>
@@ -9,4 +9,4 @@ const LinkedinMockGenerato = () => {
   );
 };
 
-export default LinkedinMockGenerato;
+export default LinkedinMockGenerator;

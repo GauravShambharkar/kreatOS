@@ -43,7 +43,7 @@ export default function Home() {
       name: "Youtube Mockup Generator",
       description:
         "Generate professional Youtube posts with engagement metrics and branding.",
-      href: "tool/youtube-mockup",
+      href: "tool/youtube-mockup-generator",
       icon: GrYoutube,
       gradient: "from-blue-600 to-indigo-600",
       bgGradient: "from-blue-600/10 to-indigo-600/10",
@@ -98,9 +98,8 @@ export default function Home() {
               <Link
                 key={tool.name}
                 href={isAvailable ? tool.href : "#"}
-                className={`group relative overflow-hidden rounded-2xl border  border-gray-200 dark:border-zinc-800 bg-white/20 backdrop-blur-2xl dark:bg-[#16181c]/70 p-8 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] ${
-                  !isAvailable ? "opacity-75 cursor-not-allowed" : ""
-                }`}
+                className={`group relative overflow-hidden rounded-2xl border  border-gray-200 dark:border-zinc-800 bg-white/20 backdrop-blur-2xl dark:bg-[#16181c]/70 p-8 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] ${!isAvailable ? "opacity-75 cursor-not-allowed" : ""
+                  }`}
                 onClick={(e) => !isAvailable && e.preventDefault()}
               >
                 {/* Background Gradient */}

@@ -4,12 +4,8 @@ export async function GET() {
     return res.json(
         {
             success: true,
-            data: [
-                { id: 1, name: "Alice" },
-                { id: 2, name: "Bob" }
-            ]
+            msg: "Post fetched successfully"
         },
-        { status: 200 }
     );
 }
 

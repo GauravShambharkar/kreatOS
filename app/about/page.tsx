@@ -69,7 +69,7 @@ const AboutPage = () => {
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl leading-tight text-gray-600 dark:text-gray-400 mix-blend-screen font-light tracking-tight max-w-3xl mx-auto">
+          <p className="text-md md:text-md leading-tight txttight text-gray-600 dark:text-gray-400 mix-blend-screen font-light tracking-tight max-w-3xl mx-auto">
             kreatOS is your ultimate toolkit for creating stunning social media
             mockups. We believe every creator deserves access to
             professional-grade tools without the complexity or cost.
@@ -91,12 +91,11 @@ const AboutPage = () => {
               Our Mission
             </h2>
 
-            <p className="text-lg text-gray-700 leading-tight dark:text-gray-300 leading-relaxed font-light">
+            <p className="text-md  text-gray-700 leading-tight txttight dark:text-gray-300 font-light">
               To democratize content creation by providing intuitive, powerful
               tools that help creators, marketers, and designers bring their
               visions to life. We're building a platform where creativity meets
-              efficiency, enabling you to focus on what matters most—your
-              content.
+              efficiency, enabling you to focus on what matters most your content.
             </p>
           </div>
         </div>
@@ -130,8 +129,12 @@ const AboutPage = () => {
           <h2 className="text-3xl md:text-4xl font-extralight tracking-tighter mb-4">
             Why Choose kreatOS?
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg font-light">
-            We're more than just tools—we're your creative partner
+          <p className="text-gray-600 mix-blend-screen dark:text-gray-400 text-lg font-light">
+            We're more than just tools, we're complete
+            <span className="bg-linear-to-r mix-blend-plus-lighter from-blue-400 to-blue-600 bg-clip-text text-transparent">
+              {" "}Tool-Ecosystem for content{" "}
+            </span>
+            creators.
           </p>
         </div>
 
@@ -180,7 +183,7 @@ const AboutPage = () => {
               Looking Ahead
             </h2>
 
-            <p className="text-lg text-gray-700 leading-tight dark:text-gray-300  font-light">
+            <p className="text-md text-gray-700 leading-tight txttight dark:text-gray-300  font-light">
               We're constantly innovating and expanding our toolkit. From
               AI-powered design suggestions to collaborative features, we're
               building the future of content creation. Join us on this journey
