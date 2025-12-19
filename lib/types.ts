@@ -54,6 +54,7 @@ export interface Instadata {
     content: {
         caption: string;
         image: string | null;
+        video: string | null;
         location?: string;
         date: Date;
     };
@@ -85,6 +86,7 @@ export const initialInstadata: Instadata = {
     content: {
         caption: "Living my best life! 🌟 #lifestyle #vibe",
         image: null,
+        video: null,
         location: "Paris, France",
         date: new Date(),
     },

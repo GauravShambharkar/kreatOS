@@ -12,6 +12,9 @@ import {
     Music,
     Bookmark,
     Repeat2,
+    Camera,
+    Save,
+    SaveIcon,
 } from "lucide-react";
 import { BiRepost } from "react-icons/bi";
 
@@ -21,6 +24,10 @@ interface InstaReelCardProps {
 
 export const InstaReelCard = ({ data }: InstaReelCardProps) => {
     // Reels are typically full-screen vertical
+    const formatter = new Intl.NumberFormat('en-US', {
+        notation: 'compact',
+        maximumFractionDigits: 1
+    });
     return (
         <div
             id="insta-reel-card"
@@ -47,61 +54,58 @@ export const InstaReelCard = ({ data }: InstaReelCardProps) => {
             </div>
 
             {/* Top Bar */}
-            <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-center z-10">
-                <h3 className="text-white font-semibold text-lg drop-shadow-md">Reels</h3>
+            <div className="absolute  top-0 left-0 right-0 p-6 flex justify-between items-center z-10">
+                <h3 className="text-white  font-semibold text-md drop-shadow-md">Reels</h3>
                 <button className="text-white drop-shadow-md">
-                    <Send className="w-6 h-6" />
+                    <Camera className="w-5 h-5" />
                 </button>
             </div>
 
             {/* Right Side Action Buttons */}
-            <div className="absolute right-4 bottom-24 flex flex-col items-center gap-5 z-10">
+            <div className="absolute right-4 bottom-24 flex flex-col items-center gap-4 z-10">
                 <div className="flex flex-col items-center gap-1">
                     <button className="text-white drop-shadow-md hover:scale-110 transition-transform">
-                        <Heart className="w-8 h-8" />
+                        <Heart className="w-6 h-6" />
                     </button>
                     <span className="text-xs text-white font-medium drop-shadow-md">
-                        {data.stats.likes >= 1000 ? (data.stats.likes / 1000).toFixed(1) + 'K' : data.stats.likes}
+                        {formatter.format(data.stats.likes)}
                     </span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
                     <button className="text-white drop-shadow-md hover:scale-110 transition-transform">
-                        <MessageCircle className="w-8 h-8" />
+                        <MessageCircle className="w-6 h-6" />
                     </button>
                     <span className="text-xs text-white font-medium drop-shadow-md">
-                        {data.stats.comments >= 1000 ? (data.stats.comments / 1000).toFixed(1) + 'K' : data.stats.comments}
+                        {formatter.format(data.stats.comments)}
                     </span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
                     <button className="text-white drop-shadow-md hover:scale-110 transition-transform">
-                        <Repeat2 className="w-7 h-7" />
+                        <Repeat2 className="w-6 h-6" />
                     </button>
                     <span className="text-xs text-white font-medium drop-shadow-md">
-                        {data.stats.reposts! >= 1000 ? (data.stats.reposts! / 1000).toFixed(1) + 'K' : data.stats.reposts!}
+                        {formatter.format(data.stats.reposts!)}
                     </span>
                 </div>
                 <div className="flex flex-col items-center gap-1">
                     <button className="text-white drop-shadow-md hover:scale-110 transition-transform">
-                        <Send className="w-7 h-7" />
+                        <Send className="w-5 h-5" />
                     </button>
                     <span className="text-xs text-white font-medium drop-shadow-md">
-                        {data.stats.shares >= 1000 ? (data.stats.shares / 1000).toFixed(1) + 'K' : data.stats.shares}
+                        {formatter.format(data.stats.shares)}
                     </span>
                 </div>
                 <button className="text-white drop-shadow-md hover:scale-110 transition-transform">
-                    <MoreVertical className="w-6 h-6" />
+                    <Bookmark className="w-5 h-5" />
                 </button>
-                <div className="w-8 h-8 rounded-lg border-2 border-white overflow-hidden mt-2 drop-shadow-md">
-                    {data.user.avatar ? (
-                        <img src={data.user.avatar} className="w-full h-full object-cover" />
-                    ) : (
-                        <div className="w-full h-full bg-indigo-500" />
-                    )}
-                </div>
+                <button className="text-white drop-shadow-md hover:scale-110 transition-transform">
+                    <MoreVertical className="w-5 h-5" />
+                </button>
+
             </div>
 
             {/* Bottom Info Section */}
-            <div className="absolute bottom-6 left-4 right-16 z-10 flex flex-col gap-3">
+            <div className="absolute bottom-12 left-4 right-16 z-10 flex flex-col gap-3">
                 {/* User Info */}
                 <div className="flex items-center gap-2">
                     <div className="w-8 h-8 rounded-full border border-white/50 overflow-hidden bg-zinc-800">
@@ -126,9 +130,10 @@ export const InstaReelCard = ({ data }: InstaReelCardProps) => {
                 <div className="text-white text-xs drop-shadow-md line-clamp-2 pr-4">
                     <span className="font-light">{data.content.caption}</span>
                 </div>
-
-                {/* Audio Info */}
-                <div className="flex items-center gap-2 bg-black/20 backdrop-blur-md rounded-full px-3 py-1.5 w-fit border border-white/10 overflow-hidden max-w-full">
+            </div>
+            {/* Audio Info */}
+            <div className="absolute  bottom-2 left-0 right-0 z-10 flex items-center justify-between  w-full gap-2  px-3 py-1.5  border-white/10 overflow-hidden max-w-full">
+                <div className="flex items-center gap-2">
                     <Music className="w-3 h-3 text-white shrink-0" />
                     <div className="flex items-center gap-2 overflow-hidden whitespace-nowrap marquee">
                         <span className="text-[10px] text-white font-medium drop-shadow-md">
@@ -136,7 +141,15 @@ export const InstaReelCard = ({ data }: InstaReelCardProps) => {
                         </span>
                     </div>
                 </div>
+                <div className="w-6 h-6 rounded-full border-2 border-white overflow-hidden drop-shadow-md">
+                    {data.user.avatar ? (
+                        <img src={data.user.avatar} className="w-full h-full object-cover" />
+                    ) : (
+                        <div className="w-full h-full bg-indigo-500" />
+                    )}
+                </div>
             </div>
+
         </div>
     );
 };

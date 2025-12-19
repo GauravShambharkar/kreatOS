@@ -13,6 +13,7 @@ interface InstaDataFormProps {
 export const InstaDataForm = ({ data, onChange }: InstaDataFormProps) => {
     const avatarInputRef = useRef<HTMLInputElement>(null);
     const postImageInputRef = useRef<HTMLInputElement>(null);
+    const postVideoInputRef = useRef<HTMLInputElement>(null);
     const likerAvatarInputRef = useRef<HTMLInputElement>(null);
 
     const handleImageUpload = (
@@ -253,6 +254,37 @@ export const InstaDataForm = ({ data, onChange }: InstaDataFormProps) => {
                             <Upload className="w-4 h-4" />
                         </button>
                     </div>
+
+                    {data.type === 'reel' && <div className="">
+                        <>
+                            <label className="text-xs text-gray-500">{data.type === 'reel' ? 'Reel Video' : 'Post Video'}</label>
+                            <div className="flex gap-2">
+                                <input
+                                    type="text"
+                                    value={data.content.video || ""}
+                                    onChange={(e) => handleChange("content", "video", e.target.value)}
+                                    placeholder="Paste Video URL or Upload"
+                                    className="flex-1 px-4 py-2 rounded-xl border border-gray-200 dark:border-zinc-800 bg-gray-50 dark:bg-zinc-900/50 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                                />
+                                <input
+                                    type="file"
+                                    ref={postVideoInputRef}
+                                    onChange={(e) => handleImageUpload(e, "content", "video")}
+                                    accept="video/*"
+                                    className="hidden"
+                                />
+                                <button
+                                    onClick={() => postVideoInputRef.current?.click()}
+                                    className="px-4 py-2 bg-gray-200 dark:bg-zinc-800 rounded-xl hover:opacity-80 transition-opacity"
+                                    title="Upload Image"
+                                >
+                                    <Upload className="w-4 h-4" />
+                                </button>
+                            </div>
+                        </>
+
+                    </div>}
+
                 </div>
             </section>
 

@@ -21,6 +21,11 @@ interface InstaPostCardProps {
 export const InstaPostCard = ({ data }: InstaPostCardProps) => {
     const isDark = data.theme === "dark";
 
+    const formatter = new Intl.NumberFormat('en-US', {
+        notation: 'compact',
+        maximumFractionDigits: 1
+    });
+
     return (
         <div
             id="insta-post-card"
@@ -133,7 +138,7 @@ export const InstaPostCard = ({ data }: InstaPostCardProps) => {
                             </div>
                             <p className="text-xs">
                                 Liked by <span className="font-semibold">{data.likedBy.name}</span> and{" "}
-                                <span className="font-semibold">{data.stats.likes.toLocaleString()} others</span>
+                                <span className="font-semibold">{formatter.format(data.stats.likes)} others</span>
                             </p>
                         </div>
                     )}
