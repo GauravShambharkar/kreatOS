@@ -1,7 +1,7 @@
-const data = {
+const config = {
   plugins: {
     "@tailwindcss/postcss": {},
   },
 };
 
-export default data;
+export default config;
