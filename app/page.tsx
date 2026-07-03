@@ -99,7 +99,7 @@ export default function Home() {
 
             <motion.h2
               variants={item}
-              className="leading-tight text-[#ffffff] mix-blend-plus-darker tracking-tighter text-[48px] font-extralight"
+              className="leading-tight text-[#ffffff] mix-blend-plus-darker tracking-tighter text-[36px] sm:text-[42px] md:text-[48px] font-extralight"
             >
               Create Stunning <br />
               <span className="font-white">Social Media Mockups</span>
@@ -107,14 +107,14 @@ export default function Home() {
 
             <motion.p
               variants={item}
-              className="text-[20px] mix-blend-plus-lighter text-white leading-normal font-extralight tracking-tight dark:text-[#9d9d9db6] max-w-3xl"
+              className="text-[16px] md:text-[20px] mix-blend-plus-lighter text-white leading-normal font-extralight tracking-tight dark:text-[#9d9d9db6] max-w-3xl"
             >
               A comprehensive suite of tools designed for content creators,
               marketers, and designers to craft pixel-perfect social media mockups
               effortlessly.
             </motion.p>
 
-            <motion.div variants={item} className="pt-2">
+            <motion.div variants={item} className="pt-2 flex justify-end md:justify-start">
               <Link
                 href="#tools-grid"
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-medium transition-colors shadow-lg shadow-blue-600/20 text-[10px]"
@@ -130,63 +130,63 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative flex items-center justify-center w-full max-w-[450px] aspect-square mx-auto"
+            className="relative flex items-center justify-center w-[85%] sm:w-full max-w-[320px] sm:max-w-[380px] md:max-w-[450px] aspect-square mx-auto mt-8 md:mt-0"
           >
             {/* Dashed Orbits */}
-            {/* Outer Orbit Line */}
-            <div className="absolute inset-0 border border-dashed border-blue-400/40 rounded-full animate-[spin_100s_linear_infinite]" />
+            {/* Outer Orbit Line (contracted from inset-0 to inset-[8%] to prevent overflow) */}
+            <div className="absolute inset-[8%] border border-dashed border-blue-400/40 rounded-full animate-[spin_100s_linear_infinite]" />
             
-            {/* Middle Orbit Line */}
-            <div className="absolute inset-[12.5%] border border-dashed border-blue-400/40 rounded-full animate-[spin_70s_linear_infinite_reverse]" />
+            {/* Middle Orbit Line (contracted from inset-[12.5%] to inset-[20%]) */}
+            <div className="absolute inset-[20%] border border-dashed border-blue-400/40 rounded-full animate-[spin_70s_linear_infinite_reverse]" />
             
-            {/* Inner Orbit Line */}
-            <div className="absolute inset-[35%] border border-dashed border-blue-400/40 rounded-full" />
+            {/* Inner Orbit Line (inset-[36%]) */}
+            <div className="absolute inset-[36%] border border-dashed border-blue-400/40 rounded-full" />
 
             {/* Social Media Badges revolving slowly */}
-            {/* Outer Orbit Badges (revolving clockwise at 45s) */}
+            {/* Outer Orbit Badges (revolving clockwise at 45s, coordinates adjusted for 8% inset) */}
             <div className="absolute inset-0 animate-[spin_45s_linear_infinite]">
               {/* X Logo (Outer Orbit, Top-Right) */}
-              <div className="absolute left-[85.36%] top-[14.64%] -translate-x-1/2 -translate-y-1/2 z-10">
+              <div className="absolute left-[79.7%] top-[20.3%] -translate-x-1/2 -translate-y-1/2 z-10">
                 <div className="animate-[spin_45s_linear_infinite_reverse]">
                   <motion.div whileHover={{ scale: 1.15 }}>
-                    <div className="w-14 h-14 md:w-16 md:h-16 bg-black rounded-full flex items-center justify-center text-white border border-zinc-800 shadow-2xl">
-                      <FaXTwitter className="w-6 h-6 md:w-7 md:h-7" />
+                    <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-black rounded-full flex items-center justify-center text-white border border-zinc-800 shadow-2xl">
+                      <FaXTwitter className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                     </div>
                   </motion.div>
                 </div>
               </div>
 
               {/* YouTube Logo (Outer Orbit, Bottom-Left) */}
-              <div className="absolute left-[14.64%] top-[85.36%] -translate-x-1/2 -translate-y-1/2 z-10">
+              <div className="absolute left-[20.3%] top-[79.7%] -translate-x-1/2 -translate-y-1/2 z-10">
                 <div className="animate-[spin_45s_linear_infinite_reverse]">
                   <motion.div whileHover={{ scale: 1.15 }}>
-                    <div className="w-14 h-14 md:w-16 md:h-16 bg-[#ff0000] rounded-2xl flex items-center justify-center text-white shadow-2xl">
-                      <GrYoutube className="w-6 h-6 md:w-7 md:h-7" />
+                    <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#ff0000] rounded-2xl flex items-center justify-center text-white shadow-2xl">
+                      <GrYoutube className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                     </div>
                   </motion.div>
                 </div>
               </div>
             </div>
 
-            {/* Middle Orbit Badges (revolving counter-clockwise at 35s) */}
+            {/* Middle Orbit Badges (revolving counter-clockwise at 35s, coordinates adjusted for 20% inset) */}
             <div className="absolute inset-0 animate-[spin_35s_linear_infinite_reverse]">
               {/* Instagram Logo (Middle Orbit, Top-Left) */}
-              <div className="absolute left-[23.48%] top-[23.48%] -translate-x-1/2 -translate-y-1/2 z-10">
+              <div className="absolute left-[28.8%] top-[28.8%] -translate-x-1/2 -translate-y-1/2 z-10">
                 <div className="animate-[spin_35s_linear_infinite]">
                   <motion.div whileHover={{ scale: 1.15 }}>
-                    <div className="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] rounded-2xl flex items-center justify-center text-white shadow-2xl">
-                      <BsInstagram className="w-6 h-6 md:w-7 md:h-7" />
+                    <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] rounded-2xl flex items-center justify-center text-white shadow-2xl">
+                      <BsInstagram className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                     </div>
                   </motion.div>
                 </div>
               </div>
 
               {/* LinkedIn Logo (Middle Orbit, Bottom-Right) */}
-              <div className="absolute left-[76.52%] top-[76.52%] -translate-x-1/2 -translate-y-1/2 z-10">
+              <div className="absolute left-[71.2%] top-[71.2%] -translate-x-1/2 -translate-y-1/2 z-10">
                 <div className="animate-[spin_35s_linear_infinite]">
                   <motion.div whileHover={{ scale: 1.15 }}>
-                    <div className="w-14 h-14 md:w-16 md:h-16 bg-[#0a66c2] rounded-2xl flex items-center justify-center text-white shadow-2xl">
-                      <FaLinkedin className="w-6 h-6 md:w-7 md:h-7" />
+                    <div className="w-11 h-11 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#0a66c2] rounded-2xl flex items-center justify-center text-white shadow-2xl">
+                      <FaLinkedin className="w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7" />
                     </div>
                   </motion.div>
                 </div>
@@ -235,7 +235,7 @@ export default function Home() {
                <Link
                  key={tool.name}
                  href={isAvailable ? tool.href : "#"}
-                 className={`group relative overflow-hidden rounded-[32px] border border-gray-200/60 dark:border-zinc-800/80 bg-white/95 dark:bg-[#16181c]/90 p-8 min-h-[240px] transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] flex flex-col justify-between ${
+                 className={`group relative overflow-hidden rounded-[32px] border border-gray-200/60 dark:border-zinc-800/80 bg-white/95 dark:bg-[#16181c]/90 p-6 sm:p-8 min-h-[220px] sm:min-h-[240px] transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] flex flex-col justify-between ${
                    !isAvailable ? "opacity-75 cursor-not-allowed" : ""
                  }`}
                  onClick={(e) => !isAvailable && e.preventDefault()}
@@ -263,9 +263,9 @@ export default function Home() {
 
                  {/* Large Brand Icon at bottom-right (cut-off) */}
                  <div
-                   className={`absolute right-[-16px] bottom-[-16px] w-24 h-24 rounded-[28px] ${brandBg} ${brandGlow} flex items-end justify-end p-6 text-white transition-transform duration-500 group-hover:scale-105`}
+                   className={`absolute right-[-12px] bottom-[-12px] sm:right-[-16px] sm:bottom-[-16px] w-20 h-20 sm:w-24 sm:h-24 rounded-[22px] sm:rounded-[28px] ${brandBg} ${brandGlow} flex items-end justify-end p-5 sm:p-6 text-white transition-transform duration-500 group-hover:scale-105`}
                  >
-                   <Icon className="w-10 h-10 text-white transform translate-x-2 translate-y-2 group-hover:translate-x-1.5 group-hover:translate-y-1.5 transition-transform duration-300" />
+                   <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-white transform translate-x-1.5 translate-y-1.5 sm:translate-x-2 sm:translate-y-2 group-hover:translate-x-1 group-hover:translate-y-1 sm:group-hover:translate-x-1.5 sm:group-hover:translate-y-1.5 transition-transform duration-300" />
                  </div>
                </Link>
              );
@@ -276,7 +276,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-gray-250 dark:border-zinc-800/80 bg-white/70 dark:bg-[#0a0a0a]/75 backdrop-blur-2xl py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8 pb-12 border-b border-gray-200 dark:border-zinc-800/60">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 pb-12 border-b border-gray-200 dark:border-zinc-800/60">
             {/* Column 1: Brand & Info */}
             <div className="space-y-4 col-span-1">
               <div className="flex items-center gap-2">

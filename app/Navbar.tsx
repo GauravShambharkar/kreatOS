@@ -167,55 +167,66 @@ const Navbar = () => {
 
         {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-6 space-y-6 animate-in slide-in-from-top-4 duration-300">
-            <div className="space-y-4">
-              <Link
-                href="/"
-                className="block text-lg font-semibold text-gray-900 dark:text-white"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                className="block text-lg font-semibold text-gray-900 dark:text-white"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                About
-              </Link>
-            </div>
+          <div className="md:hidden fixed inset-x-0 bottom-0 top-16 h-[calc(100vh-64px)] overflow-y-auto bg-white/95 dark:bg-zinc-950/95 backdrop-blur-xl border-t border-gray-200 dark:border-zinc-800 px-4 py-6 space-y-6 z-40 flex flex-col justify-between animate-in slide-in-from-top-4 duration-300">
+            <div className="space-y-6">
+              {/* Primary Pages Links */}
+              <div className="flex items-center gap-6 border-b border-gray-100 dark:border-zinc-900 pb-4">
+                <Link
+                  href="/"
+                  className="text-lg font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link
+                  href="/about"
+                  className="text-lg font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+              </div>
 
-            <div className="space-y-4">
-              <span className="text-xs font-bold text-gray-400 uppercase tracking-widest px-1">Available Tools</span>
-              <div className="grid grid-cols-1 gap-2">
-                {tools.map((tool) => (
-                  <Link
-                    key={tool.name}
-                    href={tool.href}
-                    className="flex items-center gap-4 p-3 rounded-xl bg-gray-50 dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <div className={`p-2 rounded-lg bg-white dark:bg-zinc-800 shadow-sm ${tool.color}`}>
-                      <tool.icon className="w-5 h-5" />
-                    </div>
-                    <span className="font-medium text-gray-800 dark:text-gray-200">{tool.name}</span>
-                  </Link>
-                ))}
+              {/* Available Tools Grid */}
+              <div className="space-y-3.5">
+                <span className="text-[10px] font-bold text-gray-405 dark:text-zinc-500 uppercase tracking-widest px-1 block">
+                  Available Tools
+                </span>
+                <div className="grid grid-cols-2 gap-3">
+                  {tools.map((tool) => (
+                    <Link
+                      key={tool.name}
+                      href={tool.href}
+                      className="flex items-center gap-2 p-2.5 rounded-2xl bg-gray-50/50 dark:bg-zinc-900/50 hover:bg-gray-100 dark:hover:bg-zinc-900 border border-gray-100 dark:border-zinc-800/80 transition-all"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <div className={`p-1.5 rounded-lg bg-white dark:bg-zinc-800 shadow-sm ${tool.color} flex-shrink-0`}>
+                        <tool.icon className="w-4 h-4" />
+                      </div>
+                      <span className="font-medium text-xs text-gray-800 dark:text-gray-200 truncate">
+                        {tool.name}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="flex flex-col gap-3 pt-6 border-t border-gray-100 dark:border-zinc-900">
+            {/* Bottom Actions Area */}
+            <div className="flex flex-col gap-2.5 pt-6 border-t border-gray-100 dark:border-zinc-900">
               <Link
                 href="https://github.com"
-                className="flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl border border-gray-200 dark:border-zinc-800 text-gray-700 dark:text-gray-300 font-medium"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl border border-gray-200 dark:border-zinc-800 text-gray-700 dark:text-gray-300 text-sm font-medium hover:bg-gray-50 dark:hover:bg-zinc-900 transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <Github className="w-5 h-5" />
+                <Github className="w-4 h-4" />
                 <span>GitHub Repository</span>
               </Link>
               <Link
                 href="/#tools"
-                className="w-full text-center py-4 bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-500/30"
+                className="w-full text-center py-3 bg-blue-600 text-white text-sm font-medium rounded-xl shadow-lg shadow-blue-500/30 hover:bg-blue-700 transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Get Started Free
