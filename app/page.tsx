@@ -19,7 +19,7 @@ export default function Home() {
         staggerChildren: 0.15, // delay between items
       },
     },
-  };
+  } as const;
 
   const item = {
 
@@ -28,11 +28,11 @@ export default function Home() {
       opacity: 1,
       y: 0,
       transition: {
-        ease: "easeOut",
+        ease: "easeOut" as const,
         duration: 0.4,
       },
     },
-  };
+  } as const;
   const tools = [
     {
       name: "Tweet Mock Generator",
