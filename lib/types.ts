@@ -106,3 +106,97 @@ export const initialInstadata: Instadata = {
         audioArtist: "insta_user",
     },
 };
+
+export interface Linkedindata {
+    user: {
+        name: string;
+        headline: string;
+        avatar: string | null;
+        connectionDegree: string;
+        isVerified: boolean;
+    };
+    content: {
+        text: string;
+        image?: string | null;
+        timeSincePost: string;
+    };
+    stats: {
+        reactions: number;
+        comments: number;
+        reposts: number;
+    };
+    theme: "light" | "dark";
+    reactionTypes: {
+        like: boolean;
+        celebrate: boolean;
+        love: boolean;
+        insightful: boolean;
+        curious: boolean;
+    };
+}
+
+export const initialLinkedindata: Linkedindata = {
+    user: {
+        name: "Alex Johnson",
+        headline: "Principal Software Engineer at Tech Innovators | Tech Speaker | Open Source Advocate",
+        avatar: null,
+        connectionDegree: "1st",
+        isVerified: true,
+    },
+    content: {
+        text: "I am super excited to share that I have started a new role as Principal Software Engineer today! 🚀\n\nThanks to everyone who helped me along this journey. Can't wait to build great things with the team!",
+        image: null,
+        timeSincePost: "2h",
+    },
+    stats: {
+        reactions: 412,
+        comments: 34,
+        reposts: 8,
+    },
+    theme: "light",
+    reactionTypes: {
+        like: true,
+        celebrate: true,
+        love: true,
+        insightful: false,
+        curious: false,
+    }
+};
+
+export interface Youtubedata {
+    video: {
+        title: string;
+        thumbnail: string | null;
+        duration: string;
+        views: number;
+        likes: number;
+        comments: number;
+        uploadDate: string;
+    };
+    channel: {
+        name: string;
+        avatar: string | null;
+        subscribers: string;
+        isVerified: boolean;
+    };
+    theme: "light" | "dark";
+}
+
+export const initialYoutubedata: Youtubedata = {
+    video: {
+        title: "How to Build a Modern SaaS Application in 2026 (Full Course)",
+        thumbnail: null,
+        duration: "18:42",
+        views: 12542,
+        likes: 1845,
+        comments: 188,
+        uploadDate: "3 days ago",
+    },
+    channel: {
+        name: "Code Academy",
+        avatar: null,
+        subscribers: "1.2M",
+        isVerified: true,
+    },
+    theme: "light",
+};

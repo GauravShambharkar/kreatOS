@@ -38,7 +38,7 @@ export default function Home() {
       name: "Tweet Mock Generator",
       description:
         "Create realistic, high-quality tweet mockups in seconds. Perfect for presentations, portfolios, and social media content.",
-      href: "tool/tweet-mockup-generator",
+      href: "/tool/tweet-mockup-generator",
       icon: FaXTwitter,
       gradient: "from-blue-500 to-sky-400",
       bgGradient: "from-blue-500/10 to-sky-400/10",
@@ -48,7 +48,7 @@ export default function Home() {
       name: "Instagram Post Mockup Generator",
       description:
         "Design stunning Instagram post mockups with customizable layouts and filters.",
-      href: "tool/insta-mockup-generator",
+      href: "/tool/insta-mockup-generator",
       icon: BsInstagram,
       gradient: "from-pink-500 to-purple-500",
       bgGradient: "from-pink-500/10 to-purple-500/10",
@@ -58,7 +58,7 @@ export default function Home() {
       name: "LinkedIn Post Mockup Generator",
       description:
         "Generate professional LinkedIn posts with engagement metrics and branding.",
-      href: "tool/linkedin-mockup-generator",
+      href: "/tool/linkedin-mockup-generator",
       icon: FaLinkedin,
       gradient: "from-blue-600 to-indigo-600",
       bgGradient: "from-blue-600/10 to-indigo-600/10",
@@ -68,7 +68,7 @@ export default function Home() {
       name: "Youtube Mockup Generator",
       description:
         "Generate professional Youtube posts with engagement metrics and branding.",
-      href: "tool/youtube-mockup-generator",
+      href: "/tool/youtube-mockup-generator",
       icon: GrYoutube,
       gradient: "from-blue-600 to-indigo-600",
       bgGradient: "from-blue-600/10 to-indigo-600/10",
