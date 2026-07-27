@@ -4,9 +4,9 @@ import { useState } from "react";
 import { initialdata, Tweetdata } from "@/lib/types";
 import { TweetCard } from "@/components/Tweet-Mockup-Generator/tweet-card";
 import { TweetdataForm } from "@/components/Tweet-Mockup-Generator/tweet-data-form";
-import { Download, RefreshCw, ArrowLeft } from "lucide-react";
+import { Download, RefreshCw, Sparkles, Eye, Settings2 } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
 import { toPng } from "html-to-image";
-import Link from "next/link";
 
 export default function TweetMockGenerator() {
   const [data, setdata] = useState<Tweetdata>(initialdata);
@@ -40,61 +40,79 @@ export default function TweetMockGenerator() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 dark:bg-[#0a0a0a] text-gray-900 dark:text-gray-100 font-sans">
-      <header className="border-b bg-white dark:bg-[#0a0a0a] border-gray-200 dark:border-zinc-800 p-4 sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Link
-              href="/"
-              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
-              title="Back to Home"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </Link>
-            <h1 className="text-xl font-light bg-gradient-to-r from-blue-500 to-sky-400 bg-clip-text text-transparent">
-              Tweet Mockup Generator
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+      {/* Studio Action Sub-Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl glass-panel border border-white/10 shadow-xl">
+        <div className="flex items-center gap-3 text-left">
+          <div className="p-2.5 rounded-xl bg-sky-500/20 text-sky-400 border border-sky-500/30">
+            <FaXTwitter className="w-5 h-5" />
+          </div>
+          <div>
+            <h1 className="text-lg font-bold text-white tracking-tight flex items-center gap-2">
+              <span>Tweet / X Mockup Studio</span>
+              <span className="text-[10px] uppercase font-semibold tracking-wider px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/30">
+                Live
+              </span>
             </h1>
+            <p className="text-xs text-gray-400">
+              Customize metrics, user verification, media attachments, and themes.
+            </p>
           </div>
-          <button
-            onClick={handleExport}
-            disabled={isExporting}
-            className="flex items-center gap-2 px-4 font-light py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-full transition-transform active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isExporting ? (
-              <RefreshCw className="animate-spin w-4 h-4" />
-            ) : (
-              <Download className="w-4 h-4" />
-            )}
-            {isExporting ? "Exporting..." : "Download Image"}
-          </button>
         </div>
-      </header>
 
-      <main className="max-w-6xl mx-auto p-4 md:p-8 flex flex-col lg:flex-row gap-8">
-        {/* Preview Section - Sticky on Desktop */}
-        <section className="flex-1 flex flex-col items-center lg:items-start lg:sticky lg:top-24 h-fit">
-          <div className="mb-4 text-sm font-medium text-gray-500 uppercase tracking-wider">
-            Preview
+        <button
+          onClick={handleExport}
+          disabled={isExporting}
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-medium rounded-full text-xs transition-all shadow-lg shadow-sky-500/20 border border-sky-400/30 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isExporting ? (
+            <RefreshCw className="animate-spin w-4 h-4" />
+          ) : (
+            <Download className="w-4 h-4" />
+          )}
+          <span>{isExporting ? "Rendering 3x PNG..." : "Export High-Res PNG"}</span>
+        </button>
+      </div>
+
+      {/* Main Studio Grid */}
+      <main className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        {/* Preview Canvas (Left / Top) */}
+        <section className="lg:col-span-7 flex flex-col items-center lg:sticky lg:top-24 space-y-4">
+          <div className="w-full flex items-center justify-between px-2 text-xs text-gray-400 font-medium uppercase tracking-wider">
+            <span className="flex items-center gap-1.5 text-sky-400">
+              <Eye className="w-4 h-4" />
+              <span>Canvas Preview</span>
+            </span>
+            <span className="capitalize px-2 py-0.5 rounded bg-white/5 border border-white/10 text-gray-300">
+              Theme: {data.theme}
+            </span>
           </div>
-          <div className="w-full flex justify-center lg:justify-start">
-            {/* Wrapper for shadow/centering */}
+
+          {/* Canvas Wrapper */}
+          <div className="w-full p-6 sm:p-10 rounded-3xl glass-card border border-white/10 flex justify-center items-center shadow-2xl relative overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 via-transparent to-blue-500/5 pointer-events-none" />
             <TweetCard data={data} />
           </div>
-          <div className="mt-6 text-sm text-gray-400 text-center lg:text-left max-w-md">
-            Adjust the settings on the right to customize your tweet. Changes
-            appear in real-time.
-          </div>
+
+          <p className="text-xs text-gray-400 text-center max-w-md">
+            Changes update instantly on the canvas. Click export above for publication-ready PNG.
+          </p>
         </section>
 
-        {/* Configuration Section */}
-        <section className="flex-1 bg-white dark:bg-[#16181c] rounded-2xl shadow-sm border border-gray-200 dark:border-zinc-800 h-fit overflow-hidden">
-          <div className="p-4 border-b border-gray-200 dark:border-zinc-800 bg-gray-50/50 dark:bg-zinc-900/50">
-            <h2 className="font-semibold text-lg">Configuration</h2>
+        {/* Configuration Panel (Right) */}
+        <section className="lg:col-span-5 rounded-3xl glass-panel border border-white/10 overflow-hidden shadow-2xl">
+          <div className="p-4 border-b border-white/10 bg-white/5 flex items-center justify-between">
+            <h2 className="font-semibold text-sm text-white flex items-center gap-2">
+              <Settings2 className="w-4 h-4 text-sky-400" />
+              <span>Configuration Panel</span>
+            </h2>
           </div>
-          {/* child  component changing a parent component*/}
-          <TweetdataForm data={data} onChange={setdata} />
+          <div className="p-4 sm:p-6">
+            <TweetdataForm data={data} onChange={setdata} />
+          </div>
         </section>
       </main>
     </div>
   );
 }
+
